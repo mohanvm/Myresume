@@ -1,4 +1,4 @@
 function toggleContent(heading) {
     const content = heading.nextElementSibling;
-    content.classList.toggle('visible');
+    content.style.display = content.style.display === "none" || !content.style.display ? "block" : "none";
 }
