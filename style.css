@@ -24,45 +24,40 @@ body, html {
     100% { background-position: 0% 50%; }
 }
 
-/* Centering and Header */
-header, .org-chart, footer {
+/* Header */
+header {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    margin: 20px 0;
     z-index: 1;
 }
 
-header h1 {
+.main-name h1 {
     font-size: 2.5em;
+    color: #3498db;
     font-weight: bold;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: textAnimation 5s ease infinite;
 }
 
-@keyframes textAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Organization Chart */
+/* Tree Structure */
 .org-chart {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    gap: 20px;
 }
 
 .section {
-    flex: 1 1 30%;
-    margin: 15px;
+    width: 180px;
+    margin: 0 auto;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .heading {
@@ -71,10 +66,17 @@ header h1 {
     padding: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: inline-block;
 }
 
 .heading:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    animation: letterBounce 0.5s forwards;
+}
+
+@keyframes letterBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 .content {
@@ -85,12 +87,11 @@ header h1 {
 .bullet-box {
     background: linear-gradient(45deg, #ff9a9e, #fad0c4);
     color: #333;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     margin: 10px 0;
 }
 
-/* Footer */
 footer {
     color: #fff;
     padding: 20px;
